@@ -9,9 +9,15 @@ import { CommonModule } from '@angular/common';
     <h1>
       {{ title}}
     </h1>
+    <img [src]="mageURL" alt="">
   `,
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   title = 'My notes';
+  mageURL = 'tree.jpg';
+
+  login() {
+    alert('Welcome!');
+  }
 }
