@@ -2,9 +2,20 @@
     <h2>notes-list works!</h2>
     <ul class="notes" *ngFor="let note of notes">
         <li>
-          <span class="note-title">{{ note.title }}</span>
-          <span class="note-text">{{ note.text}}</span>
+          <button (click)="show(note.title)">
+            <span class="note-title">{{ note.title }}</span>
+            <span class="note-text">{{ note.text}}</span>
+          </button>
         </li>
       </ul>
       
 </div>
+<form action="submit" #myForm="ngForm">
+  <label>Name: 
+    <input type="text" [(ngModel)]="name" name="name" />
+    <h2>{{ name }}</h2>
+  </label>
+  <input type="submit" 
+    value="Submit"
+    [disabled]="!myForm.form.valid" />
+</form>
