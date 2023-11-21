@@ -23,3 +23,9 @@
   <input type="text" [formControl]="name" name="name" />
   <h2>{{ name.value }}</h2>
 </form>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <p><input type="text" formControlName="username" /></p>
+  <p><input type="text" formControlName="password" /></p>
+  <h2>{{ loginForm.value.username }}</h2>
+  <h2>{{ loginForm.value.password }}</h2>
+</form>

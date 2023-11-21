@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Note } from '../notes';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-notes-list',
@@ -14,6 +14,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class NotesListComponent {
   name = new FormControl('James...');
+  loginForm = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  });
 
   names = 'James';
   notes: Note[] = [
@@ -55,6 +59,14 @@ export class NotesListComponent {
 
   showName() {
     alert(this.name.value);
+  }
+
+  login() {
+    alert(
+      this.loginForm.value.username +
+      ' | ' + 
+      this.loginForm.value.password
+    );
   }
 
   constructor() { }
