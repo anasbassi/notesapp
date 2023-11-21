@@ -12,10 +12,14 @@
 </div>
 <form action="submit" #myForm="ngForm">
   <label>Name: 
-    <input type="text" [(ngModel)]="name" name="name" />
-    <h2>{{ name }}</h2>
+    <input type="text" [(ngModel)]="names" name="names" />
+    <h2>{{ names }}</h2>
   </label>
   <input type="submit" 
     value="Submit"
     [disabled]="!myForm.form.valid" />
+</form>
+<form action="submit" (submit)="showName()">
+  <input type="text" [formControl]="name" name="name" />
+  <h2>{{ name.value }}</h2>
 </form>

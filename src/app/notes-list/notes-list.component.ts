@@ -2,17 +2,20 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Note } from '../notes';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-notes-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './notes-list.component.html',
   styleUrl: './notes-list.component.css'
 })
 export class NotesListComponent {
+  name = new FormControl('James...');
 
-  name = 'James';
+  names = 'James';
   notes: Note[] = [
     {
         id: 0,
@@ -48,6 +51,10 @@ export class NotesListComponent {
 
   show(title: string){
     alert(title);
+  }
+
+  showName() {
+    alert(this.name.value);
   }
 
   constructor() { }
