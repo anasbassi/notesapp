@@ -1,1 +1,19 @@
-<p>add-note works!</p>
+<form action="submit" [formGroup]="addNoteForm" (ngSubmit)="addNote()">
+    <div>
+        <label for="note-title">Title: 
+          <input id="note-title" formControlName="title"/>
+        </label>
+        <h2>{{ addNoteForm.value.title }}</h2>
+    </div>
+    <div>
+        <label for="note-text">Title: 
+          <input id="note-text" formControlName="text" />
+        </label>
+        <p>{{ addNoteForm.value.text }}</p>
+    </div>
+    <div>
+      <input type="submit" 
+      value="Submit" 
+      [disabled]="!addNoteForm.valid" />
+    </div>
+</form>

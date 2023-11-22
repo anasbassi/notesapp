@@ -1,12 +1,2 @@
-<app-header />
-<div [class.red]="isRed">
-  <div *ngIf="loggedIn">Welcome!</div>
-  <p>Root component</p>
-  <h2>List of Products</h2>
-  <div *ngFor="let product of products">{{product}}</div>
-  <button (click)="change()">
-    Switch Background Color
-  </button>
-</div>
-<app-notes-list /> 
+<app-header /> 
 <router-outlet></router-outlet>

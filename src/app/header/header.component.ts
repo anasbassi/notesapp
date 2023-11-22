@@ -1,20 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavigationComponent],
   template: `
-    <h1>
-      {{ title}}
-    </h1>
-    <img [src]="mageURL" alt="">
+    <div>
+      <h1>{{ logo }}</h1>
+      <img [src]="mageURL" alt="">
+    </div>
+    <app-navigation />
   `,
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  title = 'My notes';
+  logo = 'My Logo';
   mageURL = 'tree.jpg';
 
   login() {
